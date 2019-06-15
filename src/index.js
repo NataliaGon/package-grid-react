@@ -4,7 +4,7 @@ import MediaQuery from "react-responsive";
 // import   "./gridContainer.scss";
 // const cx = classNames.bind(styles);
 
-export  const ReactColorSquare = props => {
+export const ReactColorSquare = props => {
   const { width, height, color, text } = props;
   return (
     <div
@@ -33,10 +33,6 @@ export  const ReactColorSquare = props => {
 export class GridContainer extends Component {
   render() {
     const defaultGutterWidth = "20px";
-    const component = {
-      display: "grid",
-      width: "100%"
-    };
 
     return (
       <div>
@@ -48,8 +44,9 @@ export class GridContainer extends Component {
           }
         >
           <div
-            className={component}
             style={{
+              display: "grid",
+              width: "100%",
               gridTemplateColumns: `repeat(${
                 this.props.columnsDesktop
               }, calc(calc(100% - calc(calc(${this.props.columnsDesktop} - 1)*${
@@ -74,6 +71,8 @@ export class GridContainer extends Component {
           <div
             className={GridContainer}
             style={{
+              display: "grid",
+              width: "100%",
               gridTemplateColumns: `repeat(${
                 this.props.columnsMobile
               }, calc(calc(100% - calc(calc(${this.props.columnsMobile} - 1)*${
