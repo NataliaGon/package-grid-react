@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import classNames from "classnames/bind";
-import MediaQuery from "react-responsive";
+import Media from "react-media";
 // import   "./gridContainer.scss";
 // const cx = classNames.bind(styles);
 
@@ -33,15 +33,16 @@ export const ReactColorSquare = props => {
 export class GridContainer extends Component {
   render() {
     const defaultGutterWidth = "20px";
-
+    const smallBreakpoint = "800";
     return (
       <div>
-        <MediaQuery
-          minDeviceWidth={
-            (this.props.smallBreakpoint
-              ? this.props.smallBreakpoint
-              : configuration.smallScreenBreakPoint) + 1
-          }
+        <Media
+        query="(max-width: 599px)"
+        //   minDeviceWidth={
+        //     (this.props.smallBreakpoint
+        //       ? this.props.smallBreakpoint
+        //       : smallBreakpoint) + 1
+        //   }
         >
           <div
             style={{
@@ -60,8 +61,8 @@ export class GridContainer extends Component {
           >
             {this.props.children}
           </div>
-        </MediaQuery>
-        <MediaQuery
+        </Media>
+        {/*  <MediaQuery
           maxDeviceWidth={
             this.props.smallBreakpoint
               ? this.props.smallBreakpoint
@@ -88,7 +89,7 @@ export class GridContainer extends Component {
           >
             {this.props.children}
           </div>
-        </MediaQuery>
+        </MediaQuery> */}
       </div>
     );
   }
